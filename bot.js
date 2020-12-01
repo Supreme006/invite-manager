@@ -61,7 +61,9 @@ client.on("guildMemberAdd", (member) => {
             }
             var im = guild.member(invite.inviter.id);
             bonus = db.get(`invites.${invite.inviter.id}.bonus`) || 0;
-            if(im) global.onUpdateInvite(im, guild.id, Number(total + Number(bonus)));
+            if(im){
+		im, guild.id, Number(total + Number(bonus))
+	    };
             
         }
 
@@ -104,7 +106,9 @@ client.on("guildMemberRemove", (member) => {
     if(data.inviter) bonus = db.get(`invites.${data.inviter}.bonus`) || 0;
     
     var im = member.guild.member(data.inviter)
-    if(im) global.onUpdateInvite(im, member.guild.id, Number(total) + Number(bonus));
+    if(im){
+	 im, member.guild.id, Number(total) + Number(bonus)
+    };
 
     db.add(`invites.${data.inviter}.leave`, 1);
     if(channel){
