@@ -1,11 +1,6 @@
 const Discord = require("discord.js");
 const Database = require("../Helpers/Database");
-// exports.onLoad = (client) => {};
-/**
- * @param {Discord.Client} client 
- * @param {Discord.Message} message 
- * @param {Array<String>} args 
- */
+
 exports.run = async (client, message, args) => {
     const db = new Database("./Servers/" + message.guild.id, "Invites");
     var data = db.get(`invites`) || {};
