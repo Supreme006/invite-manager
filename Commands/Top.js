@@ -1,7 +1,6 @@
 const Discord = require("discord.js");
 const Database = require("../Helpers/Database");
-// exports.onLoad = (client) => {};
-/**
+
  * @param {Discord.Client} client 
  * @param {Discord.Message} message 
  * @param {Array<String>} args 
